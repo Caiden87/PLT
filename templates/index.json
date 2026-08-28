@@ -1,1 +1,9 @@
-{"sections":{"main":{"type":"plt-home","settings":{}}},"order":["main"]}
+{
+  "sections": {
+    "main": {
+      "type": "plt-home",
+      "settings": {}
+    }
+  },
+  "order": ["main"]
+}
