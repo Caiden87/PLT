@@ -1,9 +1,55 @@
 {
   "sections": {
-    "main": {
-      "type": "plt-home",
+    "hero": {
+      "type": "home-hero",
+      "blocks": {
+        "speed": {"type":"highlight","settings":{"heading":"Warp Speed","text":"turnaround available"}},
+        "custom": {"type":"highlight","settings":{"heading":"100%","text":"custom, every time"}},
+        "local": {"type":"highlight","settings":{"heading":"OC-based","text":"local pickup + ship"}},
+        "events": {"type":"highlight","settings":{"heading":"Events","text":"PLT Stitch Bar bookings"}}
+      },
+      "block_order": ["speed","custom","local","events"],
       "settings": {}
-    }
+    },
+    "shop": {"type":"home-shop","settings":{}},
+    "stitch_bar": {
+      "type": "home-stitch-bar",
+      "blocks": {
+        "step_1": {"type":"step","settings":{"number":"01","heading":"Consult","text":"We get to know your event, your guests, and your vision to create an experience that’s uniquely yours."}},
+        "step_2": {"type":"step","settings":{"number":"02","heading":"Curate","text":"We thoughtfully design exclusive monograms, icons, and personalization options, then select the perfect products and materials to complement your event."}},
+        "step_3": {"type":"step","settings":{"number":"03","heading":"Stitch","text":"Our team arrives on-site and brings it all to life, embroidering each piece in real time for an unforgettable guest experience."}},
+        "solo": {"type":"package","settings":{"heading":"Solo Order","price":"Custom quote","text":"One-off custom piece, made just for you. Perfect for a gift or personal treat.","featured":false,"button_label":"Start an Order"}},
+        "private": {"type":"package","settings":{"heading":"Private Event","price":"Per-guest pricing","text":"Bachelorette parties, showers, birthdays — the Stitch Bar comes to you with blanks, thread, and attitude included.","featured":true,"badge":"most popular","button_label":"Book the Bar"}},
+        "corporate": {"type":"package","settings":{"heading":"Corporate / Brand","price":"Custom quote","text":"Team swag, brand activations, and pop-up shops. We bring the stitch, you bring the crowd.","featured":false,"button_label":"Request a Quote"}}
+      },
+      "block_order": ["step_1","step_2","step_3","solo","private","corporate"],
+      "settings": {}
+    },
+    "gallery": {"type":"home-gallery","settings":{}},
+    "about": {"type":"home-about","settings":{}},
+    "testimonials": {
+      "type":"home-testimonials",
+      "blocks": {
+        "quote_1":{"type":"testimonial","settings":{"quote":"Booked the Stitch Bar for my bachelorette and it was the best decision I made besides picking my fiancé.","author":"Bride, probably still wearing the hat"}},
+        "quote_2":{"type":"testimonial","settings":{"quote":"I ordered a tote that says exactly what I'd say to my group chat. 10/10, no notes.","author":"Repeat Customer"}},
+        "quote_3":{"type":"testimonial","settings":{"quote":"Fast, funny, and the stitching quality is unreal. Worth every penny of pettiness.","author":"Corporate Client"}}
+      },
+      "block_order":["quote_1","quote_2","quote_3"],
+      "settings":{}
+    },
+    "faq": {
+      "type":"home-faq",
+      "blocks": {
+        "faq_1":{"type":"question","settings":{"question":"How long does a custom order take?","answer":"<p>Most pieces are ready in 1–2 weeks depending on order volume. Rush orders may be available — just ask when you reach out.</p>"}},
+        "faq_2":{"type":"question","settings":{"question":"Can I bring my own item to embroider?","answer":"<p>Yes! Bring-your-own is welcome for most flat, stitchable surfaces. Send us a photo before ordering so we can confirm it'll work.</p>"}},
+        "faq_3":{"type":"question","settings":{"question":"How does the PLT Stitch Bar work for events?","answer":"<p>We show up with our embroidery machine, a curated blank and thread menu, and stitch pieces live. Reach out with your date and headcount for a quote.</p>"}},
+        "faq_4":{"type":"question","settings":{"question":"Do you ship outside of Orange County?","answer":"<p>Yep — local pickup is available for OC customers, and we ship nationwide for shop orders.</p>"}},
+        "faq_5":{"type":"question","settings":{"question":"What if my text idea is a little much?","answer":"<p>We'd expect nothing less. We'll stitch it as long as it's not hateful or harassing — petty is welcome, mean isn't.</p>"}}
+      },
+      "block_order":["faq_1","faq_2","faq_3","faq_4","faq_5"],
+      "settings":{}
+    },
+    "contact": {"type":"home-contact","settings":{}}
   },
-  "order": ["main"]
+  "order": ["hero","shop","stitch_bar","gallery","about","testimonials","faq","contact"]
 }
