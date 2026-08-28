@@ -1,0 +1,11 @@
+<footer class="footer">
+  <div class="container footer__inner">
+    <a href="{{ routes.root_url }}" class="logo logo--footer">{{ shop.name }}<span class="logo__dot">.</span></a>
+    <ul class="footer__links">{% for link in section.settings.menu.links %}<li><a href="{{ link.url }}">{{ link.title }}</a></li>{% endfor %}</ul>
+    {% if section.settings.instagram != blank %}<a href="{{ section.settings.instagram }}" target="_blank" rel="noopener" class="footer__insta">Instagram ↗</a>{% endif %}
+  </div>
+  <p class="footer__bottom">&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. Stitched with attitude in Orange County, CA.</p>
+</footer>
+{% schema %}
+{"name":"Footer","settings":[{"type":"link_list","id":"menu","label":"Menu","default":"footer"},{"type":"url","id":"instagram","label":"Instagram URL","default":"https://www.instagram.com/pettylittlethingsoc"}]}
+{% endschema %}

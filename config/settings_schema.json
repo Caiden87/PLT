@@ -1,0 +1,19 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Petty Little Things",
+    "theme_version": "1.0.0",
+    "theme_author": "Petty Little Things",
+    "theme_documentation_url": "https://github.com/RivaRidgeHomes/PLT",
+    "theme_support_url": "https://github.com/RivaRidgeHomes/PLT/issues"
+  },
+  {
+    "name": "Brand",
+    "settings": [
+      { "type": "image_picker", "id": "logo", "label": "Logo" },
+      { "type": "color", "id": "accent", "label": "Accent color", "default": "#c67d92" },
+      { "type": "color", "id": "ink", "label": "Text color", "default": "#664450" },
+      { "type": "color", "id": "background", "label": "Background", "default": "#fdf7f5" }
+    ]
+  }
+]

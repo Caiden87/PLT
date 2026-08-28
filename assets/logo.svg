@@ -1,0 +1,11 @@
+<svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Petty Little Things">
+  <g fill="none" stroke="#e6a9c9" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M200,84 C176,52 130,38 96,52 C68,64 62,90 82,102 C104,116 150,108 178,94 C188,89 196,86 200,84 Z"/>
+    <path d="M200,84 C224,52 270,38 304,52 C332,64 338,90 318,102 C296,116 250,108 222,94 C212,89 204,86 200,84 Z"/>
+    <path d="M189,80 C196,75 204,75 211,80 C207,89 193,89 189,80 Z"/>
+    <path d="M185,90 C158,108 128,110 106,126 C94,134 88,144 94,150"/>
+    <path d="M215,90 C242,108 272,110 294,126 C306,134 312,144 306,150"/>
+  </g>
+  <text x="200" y="182" text-anchor="middle" font-family="'Playfair Display', 'Georgia', serif" font-style="italic" font-weight="600" font-size="52" fill="#1c1414">petty little</text>
+  <text x="200" y="214" text-anchor="middle" font-family="'Poppins', sans-serif" font-weight="500" font-size="19" letter-spacing="7" fill="#1c1414">THINGS</text>
+</svg>

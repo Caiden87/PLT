@@ -1,0 +1,113 @@
+<section class="hero">
+  <div class="hero__blob hero__blob--one"></div><div class="hero__blob hero__blob--two"></div>
+  <div class="container hero__inner">
+    <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+    <h1>{{ section.settings.heading }} <span class="script">{{ section.settings.script_heading }}</span></h1>
+    <p class="hero__sub">{{ section.settings.subheading }}</p>
+    <div class="hero__ctas"><a href="#shop" class="btn btn--primary">{{ section.settings.shop_button }}</a><a href="#stitch-bar" class="btn btn--outline">{{ section.settings.event_button }}</a></div>
+    <p class="hero__tag">{{ section.settings.hero_tag }}</p>
+  </div>
+</section>
+
+<section class="strip"><div class="container strip__row">
+  <div class="strip__item"><strong>Warp Speed</strong><span>turnaround available</span></div>
+  <div class="strip__item"><strong>100%</strong><span>custom, every time</span></div>
+  <div class="strip__item"><strong>OC-based</strong><span>local pickup + ship</span></div>
+  <div class="strip__item"><strong>Events</strong><span>PLT Stitch Bar bookings</span></div>
+</div></section>
+
+<section id="shop" class="section shop"><div class="container">
+  <p class="eyebrow eyebrow--center">the shop</p><h2 class="section__title">Pick something <span class="script">petty.</span></h2>
+  <p class="section__sub">Every piece is stitched to order — your name, your words, your energy.</p>
+  {% assign featured_collection = collections[section.settings.collection] %}
+  {% if featured_collection == blank %}{% assign featured_collection = collections.all %}{% endif %}
+  <div class="shop__grid">
+    {% for product in featured_collection.products limit: section.settings.product_limit %}
+      {% render 'product-card', product: product %}
+    {% else %}
+      {% for i in (1..4) %}<article class="card"><div class="card__art"><span class="stitch-icon">🪡</span></div><h3>Add a featured collection</h3><p>Select products in the theme editor.</p></article>{% endfor %}
+    {% endfor %}
+  </div>
+  {% if featured_collection != blank %}<p class="shop__foot"><a href="{{ featured_collection.url }}" class="btn btn--outline">Shop all</a></p>{% endif %}
+</div></section>
+
+<section id="stitch-bar" class="stitch-bar"><div class="container">
+  <p class="eyebrow eyebrow--center eyebrow--light">the main event</p>
+  <h2 class="section__title section__title--light">PLT Stitch Bar<span class="script script--light"> experience</span></h2>
+  <p class="section__sub section__sub--light">Our mobile embroidery bar brings live, on-site personalization to your party, shower, or corporate event. From first consult to final stitch, we craft a custom guest experience that feels entirely yours.</p>
+  <div class="menu">
+    <div class="menu__col"><h3><span class="menu__num">01</span> Consult</h3><p>We get to know your event, your guests, and your vision to create an experience that’s uniquely yours.</p></div>
+    <div class="menu__col"><h3><span class="menu__num">02</span> Curate</h3><p>We thoughtfully design exclusive monograms, icons, and personalization options, then select products and materials to complement your event.</p></div>
+    <div class="menu__col"><h3><span class="menu__num">03</span> Stitch</h3><p>Our team arrives on-site and brings it all to life, embroidering each piece in real time for an unforgettable guest experience.</p></div>
+  </div>
+  <div class="packages">
+    <div class="package"><h4>Solo Order</h4><p class="package__price">Custom quote</p><p>One-off custom piece, made just for you. Perfect for a gift or personal treat.</p><a href="#contact" class="btn btn--light">Start an Order</a></div>
+    <div class="package package--featured"><span class="package__badge">most popular</span><h4>Private Event</h4><p class="package__price">Per-guest pricing</p><p>Bachelorette parties, showers, birthdays — the Stitch Bar comes to you with blanks, thread, and attitude included.</p><a href="#contact" class="btn btn--primary">Book the Bar</a></div>
+    <div class="package"><h4>Corporate / Brand</h4><p class="package__price">Custom quote</p><p>Team swag, brand activations, and pop-up shops. We bring the stitch, you bring the crowd.</p><a href="#contact" class="btn btn--light">Request a Quote</a></div>
+  </div>
+</div></section>
+
+<section id="gallery" class="section gallery"><div class="container">
+  <p class="eyebrow eyebrow--center">the receipts</p><h2 class="section__title">Recent <span class="script">stitch work.</span></h2>
+  <p class="section__sub">Straight from the studio — the latest from our Instagram.</p>
+  <div class="gallery__grid" id="ig-feed" data-feed-id="{{ section.settings.behold_feed_id | escape }}" aria-live="polite">
+    {% for i in (1..6) %}<a href="{{ section.settings.instagram_url }}" target="_blank" rel="noopener" class="gallery__item gallery__item--{{ i }}"><span>View on Instagram</span></a>{% endfor %}
+  </div>
+  <p class="gallery__follow">Follow along <a href="{{ section.settings.instagram_url }}" target="_blank" rel="noopener">@pettylittlethingsoc</a> on Instagram for daily drops</p>
+</div></section>
+
+<section id="about" class="about"><div class="container about__inner">
+  <div class="about__art" aria-hidden="true"><div class="about__circle"></div><span class="about__needle">🪡</span></div>
+  <div class="about__copy"><p class="eyebrow">the brand</p><h2 class="section__title">A little petty. <span class="script">A lot of talent.</span></h2>
+    <p>Petty Little Things started with a needle, a grudge worth stitching about, and way too many opinions on font choice. What began as one-off gifts for friends turned into a full custom embroidery studio — because apparently everyone wants a hat that says exactly what they're thinking.</p>
+    <p>Every piece is made to order, by hand, with zero shortcuts and zero chill. If you can dream it (and it fits in a hoop), we can probably stitch it.</p><a href="#contact" class="btn btn--outline">Let's Make Something</a>
+  </div>
+</div></section>
+
+<section class="testimonials"><div class="container"><p class="eyebrow eyebrow--center">what people are saying</p><div class="testimonials__grid">
+  <blockquote><p>“Booked the Stitch Bar for my bachelorette and it was the best decision I made besides picking my fiancé.”</p><cite>— Bride, probably still wearing the hat</cite></blockquote>
+  <blockquote><p>“I ordered a tote that says exactly what I'd say to my group chat. 10/10, no notes.”</p><cite>— Repeat Customer</cite></blockquote>
+  <blockquote><p>“Fast, funny, and the stitching quality is unreal. Worth every penny of pettiness.”</p><cite>— Corporate Client</cite></blockquote>
+</div></div></section>
+
+<section id="faq" class="section faq"><div class="container"><p class="eyebrow eyebrow--center">questions?</p><h2 class="section__title">FAQ, <span class="script">answered honestly.</span></h2><div class="faq__list">
+  <details><summary>How long does a custom order take?</summary><p>Most pieces are ready in 1–2 weeks depending on order volume. Rush orders may be available — just ask when you reach out.</p></details>
+  <details><summary>Can I bring my own item to embroider?</summary><p>Yes! Bring-your-own is welcome for most flat, stitchable surfaces. Send us a photo before ordering so we can confirm it'll work.</p></details>
+  <details><summary>How does the PLT Stitch Bar work for events?</summary><p>We show up with our embroidery machine, a curated blank + thread menu, and stitch pieces live. Pricing is per guest with package minimums — reach out with your date and headcount for a quote.</p></details>
+  <details><summary>Do you ship outside of Orange County?</summary><p>Yep — local pickup is available for OC customers, and we ship nationwide for shop orders.</p></details>
+  <details><summary>What if my text idea is a little much?</summary><p>We'd expect nothing less. We'll stitch it as long as it's not hateful or harassing — petty is welcome, mean isn't.</p></details>
+</div></div></section>
+
+<section id="contact" class="contact"><div class="container contact__inner">
+  <div class="contact__copy"><p class="eyebrow eyebrow--light">let's talk</p><h2 class="section__title section__title--light">Start your <span class="script script--light">order.</span></h2><p class="section__sub section__sub--light">Custom piece, bulk order, or booking the Stitch Bar for your event — tell us what you're dreaming up.</p><ul class="contact__details"><li><strong>Instagram</strong> <a href="{{ section.settings.instagram_url }}" target="_blank" rel="noopener">@pettylittlethingsoc</a></li><li><strong>Based in</strong> Orange County, CA</li><li><strong>Email</strong> <a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a></li></ul></div>
+  {% form 'contact', class: 'contact__form' %}
+    {% if form.posted_successfully? %}<p class="form__success" tabindex="-1" autofocus>Thanks! We’ll be in touch soon. 🎀</p>{% endif %}
+    {{ form.errors | default_errors }}
+    <div class="form__row"><label for="ContactName">Name</label><input type="text" id="ContactName" name="contact[name]" value="{{ form.name | escape }}" required></div>
+    <div class="form__row"><label for="ContactEmail">Email</label><input type="email" id="ContactEmail" name="contact[email]" value="{{ form.email | escape }}" autocorrect="off" autocapitalize="off" required></div>
+    <div class="form__row"><label for="ContactType">What are you after?</label><select id="ContactType" name="contact[Request type]"><option>Custom shop order</option><option>PLT Stitch Bar — private event</option><option>PLT Stitch Bar — corporate</option><option>Something else</option></select></div>
+    <div class="form__row"><label for="ContactMessage">Tell us more</label><textarea id="ContactMessage" name="contact[body]" rows="4" required>{{ form.body | escape }}</textarea></div>
+    <button type="submit" class="btn btn--primary btn--block">Send It</button>
+  {% endform %}
+</div></section>
+
+{% schema %}
+{
+  "name":"PLT homepage",
+  "settings":[
+    {"type":"text","id":"eyebrow","label":"Eyebrow","default":"custom embroidery · orange county, ca"},
+    {"type":"text","id":"heading","label":"Heading","default":"Custom embroidery with a"},
+    {"type":"text","id":"script_heading","label":"Script heading","default":"playful edge."},
+    {"type":"text","id":"subheading","label":"Subheading","default":"Designed to make a statement, mark a moment, or deliver a subtle wink 🎀"},
+    {"type":"text","id":"shop_button","label":"Shop button","default":"Shop the Shop"},
+    {"type":"text","id":"event_button","label":"Event button","default":"Book the Stitch Bar"},
+    {"type":"text","id":"hero_tag","label":"Hero note","default":"“she’s not petty, she’s precise” — every PLT customer, probably"},
+    {"type":"collection","id":"collection","label":"Featured collection"},
+    {"type":"range","id":"product_limit","label":"Products to show","min":4,"max":12,"step":4,"default":8},
+    {"type":"text","id":"behold_feed_id","label":"Behold Instagram feed ID","default":"JkXABb2ovsIMy6Tix6sh"},
+    {"type":"url","id":"instagram_url","label":"Instagram URL","default":"https://www.instagram.com/pettylittlethingsoc"},
+    {"type":"text","id":"email","label":"Contact email","default":"hello@pettylittlethings.co"}
+  ],
+  "presets":[{"name":"PLT homepage"}]
+}
+{% endschema %}

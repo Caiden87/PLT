@@ -1,0 +1,25 @@
+<header class="site-header">
+  <nav class="nav container" aria-label="Main navigation">
+    <a href="{{ routes.root_url }}" class="logo">
+      {% if settings.logo != blank %}
+        {{ settings.logo | image_url: width: 360 | image_tag: class: 'logo__img', widths: '180,240,360', alt: shop.name }}
+      {% else %}
+        <img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name | escape }}" class="logo__img" width="360" height="360">
+      {% endif %}
+    </a>
+    <ul class="nav__links" id="navLinks">
+      {% for link in section.settings.menu.links %}<li><a href="{{ link.url }}">{{ link.title }}</a></li>{% endfor %}
+    </ul>
+    <div class="nav__actions">
+      <a href="{% if section.settings.cta_link != blank %}{{ section.settings.cta_link }}{% else %}{{ routes.root_url }}#contact{% endif %}" class="nav__cta">{{ section.settings.cta_label }}</a>
+      <a href="{{ routes.cart_url }}" class="nav__cart" aria-label="Cart with {{ cart.item_count }} items">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        {% if cart.item_count > 0 %}<span class="nav__cart-count">{{ cart.item_count }}</span>{% endif %}
+      </a>
+      <button class="nav__toggle" id="navToggle" type="button" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+{% schema %}
+{"name":"Header","settings":[{"type":"link_list","id":"menu","label":"Menu","default":"main-menu"},{"type":"text","id":"cta_label","label":"Button label","default":"Get In Touch"},{"type":"url","id":"cta_link","label":"Button link"}]}
+{% endschema %}
