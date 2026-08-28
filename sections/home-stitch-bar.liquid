@@ -1,0 +1,18 @@
+<section id="stitch-bar" class="stitch-bar"><div class="container">
+  <p class="eyebrow eyebrow--center eyebrow--light">{{ section.settings.eyebrow }}</p>
+  <h2 class="section__title section__title--light">{{ section.settings.heading }} <span class="script script--light">{{ section.settings.script_heading }}</span></h2>
+  <p class="section__sub section__sub--light">{{ section.settings.subheading }}</p>
+  <div class="menu">{% for block in section.blocks %}{% if block.type == 'step' %}<div class="menu__col" {{ block.shopify_attributes }}><h3><span class="menu__num">{{ block.settings.number }}</span> {{ block.settings.heading }}</h3><p>{{ block.settings.text }}</p></div>{% endif %}{% endfor %}</div>
+  <div class="packages">{% for block in section.blocks %}{% if block.type == 'package' %}<div class="package{% if block.settings.featured %} package--featured{% endif %}" {{ block.shopify_attributes }}>{% if block.settings.badge != blank %}<span class="package__badge">{{ block.settings.badge }}</span>{% endif %}<h4>{{ block.settings.heading }}</h4><p class="package__price">{{ block.settings.price }}</p><p>{{ block.settings.text }}</p>{% if block.settings.button_label != blank %}<a href="{{ block.settings.button_link | default: '#contact' }}" class="btn {% if block.settings.featured %}btn--primary{% else %}btn--light{% endif %}">{{ block.settings.button_label }}</a>{% endif %}</div>{% endif %}{% endfor %}</div>
+</div></section>
+{% schema %}
+{
+  "name":"Live Stitch Bar",
+  "settings":[{"type":"text","id":"eyebrow","label":"Small heading","default":"the main event"},{"type":"text","id":"heading","label":"Heading","default":"PLT Stitch Bar"},{"type":"text","id":"script_heading","label":"Script heading","default":"experience"},{"type":"textarea","id":"subheading","label":"Description","default":"Our mobile embroidery bar brings live, on-site personalization to your party, shower, or corporate event. From first consult to final stitch, we craft a custom guest experience that feels entirely yours."}],
+  "blocks":[
+    {"type":"step","name":"Process step","limit":3,"settings":[{"type":"text","id":"number","label":"Number"},{"type":"text","id":"heading","label":"Heading"},{"type":"textarea","id":"text","label":"Text"}]},
+    {"type":"package","name":"Package","limit":3,"settings":[{"type":"text","id":"heading","label":"Heading"},{"type":"text","id":"price","label":"Pricing text"},{"type":"textarea","id":"text","label":"Description"},{"type":"checkbox","id":"featured","label":"Feature this package","default":false},{"type":"text","id":"badge","label":"Badge"},{"type":"text","id":"button_label","label":"Button label"},{"type":"url","id":"button_link","label":"Button link"}]}
+  ],
+  "presets":[{"name":"Live Stitch Bar"}]
+}
+{% endschema %}

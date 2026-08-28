@@ -1,0 +1,8 @@
+<section class="testimonials"><div class="container">
+  <p class="eyebrow eyebrow--center">{{ section.settings.eyebrow }}</p>
+  {% if section.settings.heading != blank %}<h2 class="section__title">{{ section.settings.heading }}</h2>{% endif %}
+  <div class="testimonials__grid">{% for block in section.blocks %}<blockquote {{ block.shopify_attributes }}><p>“{{ block.settings.quote }}”</p><cite>— {{ block.settings.author }}</cite></blockquote>{% endfor %}</div>
+</div></section>
+{% schema %}
+{"name":"Testimonials","settings":[{"type":"text","id":"eyebrow","label":"Small heading","default":"what people are saying"},{"type":"text","id":"heading","label":"Optional heading"}],"blocks":[{"type":"testimonial","name":"Testimonial","limit":6,"settings":[{"type":"textarea","id":"quote","label":"Quote"},{"type":"text","id":"author","label":"Name or description"}]}],"presets":[{"name":"Testimonials","blocks":[{"type":"testimonial"},{"type":"testimonial"},{"type":"testimonial"}]}]}
+{% endschema %}
