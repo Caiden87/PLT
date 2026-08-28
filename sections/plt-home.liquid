@@ -1,3 +1,4 @@
+{% assign instagram_url = section.settings.instagram_url | default: 'https://www.instagram.com/pettylittlethingsoc' %}
 <section class="hero">
   <div class="hero__blob hero__blob--one"></div><div class="hero__blob hero__blob--two"></div>
   <div class="container hero__inner">
@@ -51,9 +52,9 @@
   <p class="eyebrow eyebrow--center">the receipts</p><h2 class="section__title">Recent <span class="script">stitch work.</span></h2>
   <p class="section__sub">Straight from the studio — the latest from our Instagram.</p>
   <div class="gallery__grid" id="ig-feed" data-feed-id="{{ section.settings.behold_feed_id | escape }}" aria-live="polite">
-    {% for i in (1..6) %}<a href="{{ section.settings.instagram_url }}" target="_blank" rel="noopener" class="gallery__item gallery__item--{{ i }}"><span>View on Instagram</span></a>{% endfor %}
+    {% for i in (1..6) %}<a href="{{ instagram_url }}" target="_blank" rel="noopener" class="gallery__item gallery__item--{{ i }}"><span>View on Instagram</span></a>{% endfor %}
   </div>
-  <p class="gallery__follow">Follow along <a href="{{ section.settings.instagram_url }}" target="_blank" rel="noopener">@pettylittlethingsoc</a> on Instagram for daily drops</p>
+  <p class="gallery__follow">Follow along <a href="{{ instagram_url }}" target="_blank" rel="noopener">@pettylittlethingsoc</a> on Instagram for daily drops</p>
 </div></section>
 
 <section id="about" class="about"><div class="container about__inner">
@@ -79,7 +80,7 @@
 </div></div></section>
 
 <section id="contact" class="contact"><div class="container contact__inner">
-  <div class="contact__copy"><p class="eyebrow eyebrow--light">let's talk</p><h2 class="section__title section__title--light">Start your <span class="script script--light">order.</span></h2><p class="section__sub section__sub--light">Custom piece, bulk order, or booking the Stitch Bar for your event — tell us what you're dreaming up.</p><ul class="contact__details"><li><strong>Instagram</strong> <a href="{{ section.settings.instagram_url }}" target="_blank" rel="noopener">@pettylittlethingsoc</a></li><li><strong>Based in</strong> Orange County, CA</li><li><strong>Email</strong> <a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a></li></ul></div>
+  <div class="contact__copy"><p class="eyebrow eyebrow--light">let's talk</p><h2 class="section__title section__title--light">Start your <span class="script script--light">order.</span></h2><p class="section__sub section__sub--light">Custom piece, bulk order, or booking the Stitch Bar for your event — tell us what you're dreaming up.</p><ul class="contact__details"><li><strong>Instagram</strong> <a href="{{ instagram_url }}" target="_blank" rel="noopener">@pettylittlethingsoc</a></li><li><strong>Based in</strong> Orange County, CA</li><li><strong>Email</strong> <a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a></li></ul></div>
   {% form 'contact', class: 'contact__form' %}
     {% if form.posted_successfully? %}<p class="form__success" tabindex="-1" autofocus>Thanks! We’ll be in touch soon. 🎀</p>{% endif %}
     {{ form.errors | default_errors }}
@@ -105,7 +106,7 @@
     {"type":"collection","id":"collection","label":"Featured collection"},
     {"type":"range","id":"product_limit","label":"Products to show","min":4,"max":12,"step":4,"default":8},
     {"type":"text","id":"behold_feed_id","label":"Behold Instagram feed ID","default":"JkXABb2ovsIMy6Tix6sh"},
-    {"type":"url","id":"instagram_url","label":"Instagram URL","default":"https://www.instagram.com/pettylittlethingsoc"},
+    {"type":"url","id":"instagram_url","label":"Instagram URL"},
     {"type":"text","id":"email","label":"Contact email","default":"hello@pettylittlethings.co"}
   ],
   "presets":[{"name":"PLT homepage"}]
