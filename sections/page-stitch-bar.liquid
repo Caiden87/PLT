@@ -1,0 +1,38 @@
+<section class="service-hero service-hero--stitch">
+  <div class="container service-hero__inner"><p class="eyebrow eyebrow--light">{{ section.settings.eyebrow }}</p><h1>{{ section.settings.heading }} <span class="script script--light">{{ section.settings.script_heading }}</span></h1><p class="service-hero__sub">{{ section.settings.intro }}</p><a href="#stitch-bar-form" class="btn btn--primary">{{ section.settings.hero_button }}</a></div>
+</section>
+
+<section class="section"><div class="container"><p class="eyebrow eyebrow--center">{{ section.settings.process_eyebrow }}</p><h2 class="section__title">{{ section.settings.process_heading }}</h2><p class="section__sub">{{ section.settings.process_intro }}</p><div class="service-steps">{% for block in section.blocks %}{% if block.type == 'step' %}<article class="service-step" {{ block.shopify_attributes }}><span>{{ block.settings.number }}</span><h3>{{ block.settings.heading }}</h3><p>{{ block.settings.text }}</p></article>{% endif %}{% endfor %}</div></div></section>
+
+<section class="stitch-details"><div class="container"><p class="eyebrow eyebrow--center eyebrow--light">{{ section.settings.details_eyebrow }}</p><h2 class="section__title section__title--light">{{ section.settings.details_heading }}</h2><div class="service-card-grid">{% for block in section.blocks %}{% if block.type == 'detail' %}<article class="service-card service-card--dark" {{ block.shopify_attributes }}><span class="service-card__icon">{{ block.settings.icon }}</span><h3>{{ block.settings.heading }}</h3><p>{{ block.settings.text }}</p></article>{% endif %}{% endfor %}</div></div></section>
+
+<section id="stitch-bar-form" class="contact service-contact"><div class="container contact__inner">
+  <div class="contact__copy"><p class="eyebrow eyebrow--light">{{ section.settings.form_eyebrow }}</p><h2 class="section__title section__title--light">{{ section.settings.form_heading }} <span class="script script--light">{{ section.settings.form_script_heading }}</span></h2><p class="section__sub section__sub--light">{{ section.settings.form_intro }}</p><div class="service-note">{{ section.settings.form_note }}</div></div>
+  {% form 'contact', class: 'contact__form' %}
+    <input type="hidden" name="contact[Inquiry type]" value="Live Stitch Bar">
+    {% if form.posted_successfully? %}<p class="form__success" tabindex="-1" autofocus>{{ section.settings.success_message }}</p>{% endif %}{{ form.errors | default_errors }}
+    <div class="form__row"><label for="EventName-{{ section.id }}">Name</label><input id="EventName-{{ section.id }}" type="text" name="contact[name]" required></div>
+    <div class="form__row"><label for="EventEmail-{{ section.id }}">Email</label><input id="EventEmail-{{ section.id }}" type="email" name="contact[email]" required></div>
+    <div class="form__split"><div class="form__row"><label for="EventType-{{ section.id }}">Event type</label><select id="EventType-{{ section.id }}" name="contact[Event type]"><option>Private party</option><option>Wedding event</option><option>Corporate event</option><option>Brand activation</option><option>Fundraiser or nonprofit</option><option>Other</option></select></div><div class="form__row"><label for="EventGuests-{{ section.id }}">Estimated guests</label><input id="EventGuests-{{ section.id }}" type="number" min="1" name="contact[Estimated guests]"></div></div>
+    <div class="form__split"><div class="form__row"><label for="EventDate-{{ section.id }}">Event date</label><input id="EventDate-{{ section.id }}" type="date" name="contact[Event date]"></div><div class="form__row"><label for="EventLocation-{{ section.id }}">Venue or city</label><input id="EventLocation-{{ section.id }}" type="text" name="contact[Venue or city]"></div></div>
+    <div class="form__row"><label for="EventDetails-{{ section.id }}">Tell us about your event</label><textarea id="EventDetails-{{ section.id }}" name="contact[body]" rows="6" placeholder="Your vision, products, timing, theme, branding needs, and anything else we should know." required></textarea></div>
+    <button class="btn btn--primary btn--block" type="submit">{{ section.settings.form_button }}</button>
+  {% endform %}
+</div></section>
+
+{% schema %}
+{
+  "name":"Live Stitch Bar page",
+  "settings":[
+    {"type":"text","id":"eyebrow","label":"Small heading","default":"live personalization, made memorable"},{"type":"text","id":"heading","label":"Heading","default":"The personalization is"},{"type":"text","id":"script_heading","label":"Script heading","default":"the party."},{"type":"textarea","id":"intro","label":"Introduction","default":"Bring the PLT experience to your event with live, on-site embroidery your guests can watch, customize, and take home."},{"type":"text","id":"hero_button","label":"Button label","default":"Inquire About Your Date"},
+    {"type":"text","id":"process_eyebrow","label":"Process small heading","default":"consult · curate · stitch"},{"type":"text","id":"process_heading","label":"Process heading","default":"An experience designed around you"},{"type":"textarea","id":"process_intro","label":"Process introduction","default":"Every Stitch Bar is thoughtfully planned to match your event, guests, and aesthetic."},
+    {"type":"text","id":"details_eyebrow","label":"Details small heading","default":"the details"},{"type":"text","id":"details_heading","label":"Details heading","default":"A few things to know"},
+    {"type":"text","id":"form_eyebrow","label":"Form small heading","default":"save your date"},{"type":"text","id":"form_heading","label":"Form heading","default":"Bring the Stitch Bar"},{"type":"text","id":"form_script_heading","label":"Form script heading","default":"to your event."},{"type":"textarea","id":"form_intro","label":"Form introduction","default":"Tell us what you’re planning and we’ll follow up with availability and a custom proposal."},{"type":"richtext","id":"form_note","label":"Form note","default":"<p>Based in Orange County, California. Travel may be available depending on the event.</p>"},{"type":"text","id":"form_button","label":"Submit button","default":"Request Availability"},{"type":"text","id":"success_message","label":"Success message","default":"Your event inquiry is in! We’ll be in touch soon. 🎀"}
+  ],
+  "blocks":[
+    {"type":"step","name":"Process step","limit":3,"settings":[{"type":"text","id":"number","label":"Number"},{"type":"text","id":"heading","label":"Heading"},{"type":"textarea","id":"text","label":"Description"}]},
+    {"type":"detail","name":"Event detail","limit":6,"settings":[{"type":"text","id":"icon","label":"Icon or emoji"},{"type":"text","id":"heading","label":"Heading"},{"type":"textarea","id":"text","label":"Description"}]}
+  ],
+  "presets":[{"name":"Live Stitch Bar page"}]
+}
+{% endschema %}
