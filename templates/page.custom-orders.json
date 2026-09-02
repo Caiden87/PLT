@@ -1,0 +1,18 @@
+{
+  "sections": {
+    "main": {
+      "type": "page-custom-orders",
+      "blocks": {
+        "one_of_one": {"type":"order_type","settings":{"icon":"🎀","heading":"One-of-One Pieces","text":"A personalized hat, sweatshirt, tote, gift, or keepsake made especially for one person."}},
+        "groups": {"type":"order_type","settings":{"icon":"✦","heading":"Groups & Teams","text":"Coordinated pieces for birthdays, teams, trips, schools, celebrations, and your favorite people."}},
+        "brands": {"type":"order_type","settings":{"icon":"🪡","heading":"Brands & Business","text":"Elevated uniforms, client gifts, event merchandise, and custom pieces that feel unmistakably yours."}},
+        "step_1": {"type":"step","settings":{"number":"01","heading":"Share","text":"Tell us about your item, personalization, quantity, timing, and overall vision."}},
+        "step_2": {"type":"step","settings":{"number":"02","heading":"Perfect","text":"We’ll recommend the best approach, confirm details, and provide your custom quote."}},
+        "step_3": {"type":"step","settings":{"number":"03","heading":"Stitch","text":"Once approved, your pieces are carefully created and prepared for pickup or shipping."}}
+      },
+      "block_order": ["one_of_one","groups","brands","step_1","step_2","step_3"],
+      "settings": {}
+    }
+  },
+  "order": ["main"]
+}
