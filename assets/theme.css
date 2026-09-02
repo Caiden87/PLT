@@ -28,7 +28,11 @@
 .product-page__info h1 { margin: 4px 0 10px; font-size: clamp(2rem, 4vw, 3.4rem); color: var(--plum); }
 .product-page__price { color: var(--pink-dark); font-size: 1.25rem; font-weight: 700; }
 .product-page__info form { display: grid; gap: 10px; margin-top: 26px; }
-.product-page__info select, .product-page__info input, .cart-page input { border: 1px solid var(--blush-deep); border-radius: 10px; padding: 12px; background: var(--white); color: var(--ink); font: inherit; }
+.product-page__info select, .product-page__info input, .product-page__info textarea, .cart-page input { border: 1px solid var(--blush-deep); border-radius: 10px; padding: 12px; background: var(--white); color: var(--ink); font: inherit; }
+.product-page__info textarea { width: 100%; resize: vertical; min-height: 110px; }
+.product-personalization { display: grid; gap: 7px; margin: 8px 0; }
+.product-personalization__help { margin: 0; font-size: .86rem; line-height: 1.55; opacity: .82; }
+.cart-page__property { padding: 8px 10px; border-radius: 8px; background: var(--blush); font-size: .88rem; line-height: 1.5; }
 .shopify-payment-button { margin-top: 2px; }
 .card__add { display: block; margin-top: auto; border: 0; border-radius: 999px; background: var(--pink); color: var(--white); text-align: center; padding: 11px 18px; font: inherit; font-weight: 600; }
 .cart-page { max-width: 920px; }
