@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "main": {
+      "type": "page-stitch-bar",
+      "blocks": {
+        "step_1": {"type":"step","settings":{"number":"01","heading":"Consult","text":"We get to know your event, your guests, and the experience you want to create."}},
+        "step_2": {"type":"step","settings":{"number":"02","heading":"Curate","text":"We design a custom menu of monograms, icons, thread colors, and products that fits your event."}},
+        "step_3": {"type":"step","settings":{"number":"03","heading":"Stitch","text":"We arrive on-site and personalize each piece live, creating a memorable guest experience."}},
+        "detail_1": {"type":"detail","settings":{"icon":"⏱","heading":"Three-hour minimum","text":"Events begin with a three-hour booking so guests have time to enjoy the full experience."}},
+        "detail_2": {"type":"detail","settings":{"icon":"🪡","heading":"Approximately 10 items/hour","text":"Capacity depends on design complexity, placement, products, and personalization choices."}},
+        "detail_3": {"type":"detail","settings":{"icon":"🎀","heading":"Fully curated","text":"Product, design, and thread options are planned in advance to complement your event."}},
+        "detail_4": {"type":"detail","settings":{"icon":"✦","heading":"Private or corporate","text":"Perfect for celebrations, gifting suites, launches, brand activations, and community events."}}
+      },
+      "block_order": ["step_1","step_2","step_3","detail_1","detail_2","detail_3","detail_4"],
+      "settings": {"hero_button":"Inquire About Your Date","form_button":"Request Stitch Bar Availability"}
+    }
+  },
+  "order": ["main"]
+}
